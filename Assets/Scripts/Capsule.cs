@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Capsule : Shape
 {
-    private Material capMat;
-    // Start is called before the first frame update
+    
+    //
   
 }

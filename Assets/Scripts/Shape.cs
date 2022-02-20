@@ -5,14 +5,21 @@ using UnityEngine;
 public class Shape : MonoBehaviour
 {
 
-    private GameObject shapeSelected;
+    
     private Renderer renderer;
     public Material shapeMat;
+
+    private string shapeName;
+    private string shapeColor;
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
-        
+        shapeName = gameObject.ToString();
+        shapeColor = renderer.material.name;
+        Debug.Log(shapeName);
+        Debug.Log(shapeColor);
+
 
     }
 
