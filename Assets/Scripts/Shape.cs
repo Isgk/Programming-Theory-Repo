@@ -1,24 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
 
 public class Shape : MonoBehaviour
 {
 
-    
+    public GameObject shapeId;
     private Renderer renderer;
     public Material shapeMat;
+    public TextMeshProUGUI shapeIdText;
 
-    private string shapeName;
-    private string shapeColor;
+    public string shapeName;
+    public string shapeColor;
+
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
-        shapeName = gameObject.ToString();
-        shapeColor = renderer.material.name;
-        Debug.Log(shapeName);
-        Debug.Log(shapeColor);
+
+        shapeColor = shapeMat.name;
+        shapeId = GameObject.Find("Id");
+        shapeIdText = shapeId.GetComponent<TextMeshProUGUI>();
+        shapeName = gameObject.name;
+
+
+
+
 
 
     }
@@ -31,12 +41,29 @@ public class Shape : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        
+
+
         renderer.material.color = Color.blue;
+        
     }
 
     private void OnMouseExit()
     {
         renderer.material = shapeMat;
     }
+
+    private void OnMouseDown()
+    {
+        DisplayText(); 
+        
+    }
+
+    public virtual void DisplayText()
+    {
+        shapeIdText.text = "This Is a " + shapeColor + " " + shapeName;
+    }
+
+    
 
 }
