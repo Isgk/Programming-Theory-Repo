@@ -8,24 +8,24 @@ using UnityEngine.UI;
 public class Shape : MonoBehaviour
 {
 
-    public GameObject shapeId;
+    private GameObject shapeId;
     private Renderer renderer;
-    public Material shapeMat;
-    public TextMeshProUGUI shapeIdText;
+    private Material shapeMat;
+    public  TextMeshProUGUI shapeIdText;
 
-    public string shapeName;
-    public string shapeColor;
+    private string shapeName;
+    private string shapeColor;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
-
+        shapeMat = renderer.sharedMaterial;
         shapeColor = shapeMat.name;
         shapeId = GameObject.Find("Id");
         shapeIdText = shapeId.GetComponent<TextMeshProUGUI>();
         shapeName = gameObject.name;
-
+        
 
 
 
